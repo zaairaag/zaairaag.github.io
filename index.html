@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comparação número</title>
+</head>
+<body>
+
+  <h1>Adicionar números ao array</h1>
+  
+  <input type="number" id="numeroInput">
+  <button onclick="adicionarNumero()">Adicionar</button>
+  
+  <p>Array de números: <span id="numerosArray"></span></p>
+
+  <button onclick="encontrarMaiorNumero()">Encontrar Maior</button>
+  
+</body>
+<script>
+    var numeros = []; // Array para armazenar os números
+
+function adicionarNumero() {
+  var input = document.getElementById("numeroInput");
+  var numero = parseInt(input.value); // Converter o valor do input para um número inteiro
+  
+  if (!isNaN(numero)) { // Verificar se o número é válido
+    numeros.push(numero); // Adicionar o número ao array
+    input.value = ""; // Limpar o input
+    
+    exibirArrayNumeros(); // Atualizar a exibição do array
+  }
+}
+
+function exibirArrayNumeros() {
+  var numerosSpan = document.getElementById("numerosArray");
+  numerosSpan.textContent = numeros.join(", "); // Exibir o array separado por vírgulas
+}
+
+function encontrarMaiorNumero() {
+  var maior = Math.max(...numeros); // Encontrar o maior número no array
+  alert("O maior número é: " + maior); // Exibir o maior número em um alerta
+}
+</script>
+</html>
